@@ -12,7 +12,7 @@ export const App = () => {
     <AppContainer>
       <CustomDragLayer />
       {lists.map((list) => (
-        <Column text={list.text} id={list.id} key={list.id} />
+        <Column text={list?.text} id={list?.id} key={list?.id} />
       ))}
       <AddNewItem
         toggleButtonText="+ Add another list"

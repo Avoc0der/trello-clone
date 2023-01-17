@@ -1,11 +1,15 @@
 import { AddNewItem } from "./AddNewItem";
 import { Column } from "./Column";
-import { AppContainer } from "./styled";
+import { useAppState } from "./state/AppStateContext";
+import { AppContainer } from "./styles";
 
 export const App = () => {
+  const { lists } = useAppState();
   return (
     <AppContainer>
-      <Column text="TODO:" />
+      {lists.map((list) => (
+        <Column text={list.text} id={list.id} key={list.id} />
+      ))}
       <AddNewItem toggleButtonText="+ Add another list" onAdd={console.log} />
     </AppContainer>
   );
